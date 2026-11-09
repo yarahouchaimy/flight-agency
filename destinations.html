@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somewhere | Find Your Kind of Somewhere</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: #fbfcf8;
+            color: #244b43;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* NAVBAR */
+
+        header {
+            height: 75px;
+            padding: 0 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: white;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 25px;
+            font-weight: bold;
+            color: #174b40;
+        }
+
+        .logo span {
+            color: #a4c5b8;
+        }
+
+        nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            font-size: 11px;
+            color: #526e64;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #a0bfae;
+        }
+
+        .button {
+            background: #174b40;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 30px;
+            font-size: 10px;
+            display: inline-block;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background: #286454;
+            transform: translateY(-2px);
+        }
+
+        /* HERO SECTION */
+
+        .hero {
+            background: #eaf6f4;
+            padding: 55px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-text {
+            width: 45%;
+        }
+
+        .eyebrow {
+            font-size: 8px;
+            letter-spacing: 1.5px;
+            color: #8ba79a;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            font-weight: 500;
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 11px;
+            color: #71877e;
+            line-height: 1.9;
+            margin-bottom: 18px;
+        }
+
+        .hero img {
+            width: 52%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        /* DESTINATIONS */
+
+        .destinations {
+            padding: 55px 7%;
+        }
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 30px;
+            font-weight: 500;
+        }
+
+        .search {
+            padding: 12px 18px;
+            border: 1px solid #e4ebe6;
+            border-radius: 30px;
+            background: white;
+            outline: none;
+            font-size: 10px;
+        }
+
+        .filters {
+            display: flex;
+            gap: 10px;
+            margin: 25px 0 20px;
+        }
+
+        .filter {
+            padding: 7px 16px;
+            border: 1px solid #e4ebe6;
+            border-radius: 30px;
+            font-size: 9px;
+            color: #71877e;
+            transition: 0.3s;
+        }
+
+        .filter:hover,
+        .filter.active {
+            background: #174b40;
+            color: white;
+        }
+
+        /* DESTINATION CARDS */
+
+        .destination-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #e8eee9;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(23, 75, 64, 0.12);
+        }
+
+        .card img {
+            width: 100%;
+            height: 205px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.04);
+        }
+
+        .card-content {
+            padding: 16px 18px;
+        }
+
+        .card-category {
+            font-size: 8px;
+            color: #8aa497;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 23px;
+            font-weight: 500;
+            margin-bottom: 7px;
+        }
+
+        .card p {
+            font-size: 10px;
+            color: #819188;
+            margin-bottom: 12px;
+        }
+
+        .explore {
+            display: inline-block;
+            font-size: 9px;
+            border: 1px solid #e4ebe6;
+            border-radius: 20px;
+            padding: 6px 13px;
+            transition: 0.3s;
+        }
+
+        .explore:hover {
+            background: #174b40;
+            color: white;
+        }
+
+        .card-bottom {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #edf1ed;
+            padding-top: 10px;
+            font-size: 8px;
+            color: #91a198;
+        }
+
+        /* FEATURED DESTINATION */
+
+        .feature {
+            margin: 0 7% 65px;
+            display: flex;
+            background: #174b40;
+            border-radius: 15px;
+            overflow: hidden;
+            min-height: 300px;
+        }
+
+        .feature img {
+            width: 50%;
+            object-fit: cover;
+        }
+
+        .feature-text {
+            padding: 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: white;
+        }
+
+        .feature-text h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .feature-text p {
+            font-size: 10px;
+            color: #c3d6cb;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .light-button {
+            background: #f8fbf7;
+            color: #174b40;
+            align-self: flex-start;
+        }
+
+        .light-button:hover {
+            background: #e6f1e9;
+        }
+
+        /* FINAL CTA */
+
+        .cta {
+            text-align: center;
+            padding: 10px 20px 65px;
+        }
+
+        .cta h2 {
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            font-size: 10px;
+            color: #899a91;
+            margin-bottom: 20px;
+        }
+
+        /* NEWSLETTER */
+
+        .newsletter {
+            background: #eaf6f4;
+            padding: 38px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .newsletter h2 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .newsletter p {
+            font-size: 10px;
+            color: #81958b;
+        }
+
+        .newsletter form {
+            display: flex;
+            background: white;
+            padding: 5px;
+            border-radius: 30px;
+            width: 45%;
+        }
+
+        .newsletter input {
+            border: none;
+            outline: none;
+            padding: 10px 15px;
+            flex: 1;
+            min-width: 0;
+            font-size: 10px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #174b40;
+            color: white;
+            padding: 45px 7% 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 35px;
+        }
+
+        footer h4 {
+            font-size: 9px;
+            color: #a7c4b5;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        footer p,
+        footer a {
+            font-size: 9px;
+            color: #d0dfd6;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #ffffff25;
+            margin-top: 30px;
+            padding-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 8px;
+            color: #9db9aa;
+        }
+
+        /* RESPONSIVE DESIGN */
+
+        @media (max-width: 760px) {
+
+            header {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 15px 5%;
+                gap: 15px;
+            }
+
+            nav {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .hero {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-text,
+            .hero img {
+                width: 100%;
+            }
+
+            .section-heading {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .feature {
+                flex-direction: column;
+            }
+
+            .feature img {
+                width: 100%;
+                height: 230px;
+            }
+
+            .newsletter {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .newsletter form {
+                width: 100%;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 520px) {
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .destination-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filters {
+                flex-wrap: wrap;
+            }
+
+            .feature-text {
+                padding: 30px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header>
+        <a href="#" class="logo">somewhere<span>.</span></a>
+
+        <nav>
+            <a href="#destinations">Destinations</a>
+            <a href="#about">Our approach</a>
+            <a href="#journal">Travel journal</a>
+        </nav>
+
+        <a href="#newsletter" class="button">Plan your trip ↗</a>
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="hero" id="about">
+
+        <div class="hero-text">
+
+            <div class="eyebrow">A little further, a little slower</div>
+
+            <div class="eyebrow">Welcome, kindred spirit</div>
+
+            <h1>Find your kind<br>of somewhere.</h1>
+
+            <p>
+                From quiet island mornings to paths less travelled,
+                discover the places, people, and little moments
+                that make a trip feel like yours.
+            </p>
+
+            <a href="#destinations" class="button">
+                Find your next escape ↗
+            </a>
+
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200" alt="Beautiful coastal landscape">
+
+    </section>
+
+
+    <!-- DESTINATIONS -->
+
+    <section class="destinations" id="destinations">
+
+        <div class="section-heading">
+
+            <div>
+                <div class="eyebrow">A world of possibility</div>
+                <h2>Where will your curiosity take you?</h2>
+            </div>
+
+            <input class="search" type="search" placeholder="Search destinations...">
+
+        </div>
+
+
+        <div class="filters">
+
+            <a href="#" class="filter active">All destinations</a>
+            <a href="#" class="filter">Asia</a>
+            <a href="#" class="filter">Europe</a>
+            <a href="#" class="filter">Coastal escapes</a>
+
+        </div>
+
+
+        <div class="destination-grid">
+
+
+            <!-- BALI -->
+
+            <div class="card">
+
+                <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=1200" alt="Bali rice terraces">
+
+                <div class="card-content">
+
+                    <div class="card-category">INDONESIA · ISLAND LIFE</div>
+
+                    <h3>Bali</h3>
+
+                    <p>
+                        Slow mornings, temple paths, and time together
+                        surrounded by green.
+                    </p>
+
+                    <div class="card-bottom">
+                        <span>Nature & culture</span>
+                        <a href="#newsletter" class="explore">Explore ↗</a>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- MADEIRA -->
+
+            <div class="card">
+
+                <img src="https://images.unsplash.com/photo-1513735492246-483525079686?w=1200" alt="Madeira coastline">
+
+                <div class="card-content">
+
+                    <div class="card-category">PORTUGAL · ATLANTIC ISLANDS</div>
+
+                    <h3>Madeira</h3>
+
+                    <p>
+                        Mountain air, ocean views, and little villages
+                        made for wandering.
+                    </p>
+
+                    <div class="card-bottom">
+                        <span>Scenic escapes</span>
+                        <a href="#newsletter" class="explore">Explore ↗</a>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- KYOTO -->
+
+            <div class="card">
+
+                <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=1200" alt="Green forest">
+
+                <div class="card-content">
+
+                    <div class="card-category">JAPAN · FOREST RETREATS</div>
+
+                    <h3>Kyoto</h3>
+
+                    <p>
+                        Garden paths, timeless streets, and calm
+                        corners to discover.
+                    </p>
+
+                    <div class="card-bottom">
+                        <span>Culture & calm</span>
+                        <a href="#newsletter" class="explore">Explore ↗</a>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- COSTA RICA -->
+
+            <div class="card">
+
+                <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=1200" alt="Costa Rica beach">
+
+                <div class="card-content">
+
+                    <div class="card-category">CENTRAL AMERICA · COAST</div>
+
+                    <h3>Costa Rica</h3>
+
+                    <p>
+                        Wild coastlines, warm days, and plenty of room
+                        to explore together.
+                    </p>
+
+                    <div class="card-bottom">
+                        <span>Family adventures</span>
+                        <a href="#newsletter" class="explore">Explore ↗</a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURED DESTINATION -->
+
+    <section class="feature" id="journal">
+
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1400" alt="Beautiful tropical beach">
+
+        <div class="feature-text">
+
+            <div class="eyebrow">A slower kind of travelling</div>
+
+            <h2>Vietnam,<br>at a gentler pace.</h2>
+
+            <p>
+                Think lantern-lit evenings, quiet waters, family-run
+                stays, and days that leave room for the unexpected.
+                A journey that feels as good as it looks.
+            </p>
+
+            <a href="#newsletter" class="button light-button">
+                Discover Vietnam ↗
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta">
+
+        <div class="eyebrow">Your next chapter is out there</div>
+
+        <h2>Not sure where your heart wants to go?</h2>
+
+        <p>
+            Tell us a little about your kind of getaway.
+            We'll help you find a place that feels just right.
+        </p>
+
+        <a href="#newsletter" class="button">
+            Let's plan your trip ↗
+        </a>
+
+    </section>
+
+
+    <!-- NEWSLETTER -->
+
+    <section class="newsletter" id="newsletter">
+
+        <div>
+
+            <div class="eyebrow">A note from somewhere</div>
+
+            <h2>A little wonder, delivered.</h2>
+
+            <p>
+                Thoughtful travel ideas, lovely places, and inspiration
+                for your next family escape.
+            </p>
+
+        </div>
+
+        <form>
+
+            <input type="email" placeholder="Your email address..." required>
+
+            <button type="submit" class="button">
+                Count me in ↗
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <div>
+
+                <a href="#" class="logo" style="color:white;">
+                    somewhere<span>.</span>
+                </a>
+
+                <p style="margin-top:15px;">
+                    Travel a little slower.<br>
+                    Remember a little more.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>EXPLORE</h4>
+
+                <a href="#destinations">Destinations</a>
+                <a href="#journal">Travel journal</a>
+                <a href="#about">Our approach</a>
+
+            </div>
+
+
+            <div>
+
+                <h4>GOOD TO KNOW</h4>
+
+                <a href="#newsletter">Family travel</a>
+                <a href="#newsletter">Travel planning</a>
+                <a href="#newsletter">FAQs</a>
+
+            </div>
+
+
+            <div>
+
+                <h4>SAY HELLO</h4>
+
+                <a href="mailto:hello@somewhere.example">Get in touch</a>
+                <a href="#newsletter">Instagram</a>
+                <a href="#newsletter">Pinterest</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>© 2026 Somewhere Travel Co.</span>
+
+            <span>Made for the moments in between.</span>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
