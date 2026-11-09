@@ -1,0 +1,145 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+/* ---------- Header ---------- */
+header {
+  background-color: #06416a;
+}
+
+.container_title {
+  display: flex;
+  color: white;
+}
+
+.logo {
+  padding: 20px;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.nav {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.nav a {
+  padding: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+  text-decoration-color: #0B8588;
+}
+
+/* ---------- Top section (blue) ---------- */
+.containerupperMain {
+  background-color: #086B9E;
+  color: white;
+  text-align: center;
+  padding: 40px 20px 100px;
+}
+
+.btn-link {
+  display: inline-block;
+  background-color: #0B8588;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 5px;
+}
+
+.btn-link:hover {
+  background-color: #06416a;
+  color: white;
+}
+
+/* ---------- Search bar (sits on the line) ---------- */
+.search-bar {
+  position: relative;
+  z-index: 1;
+  background: white;
+  color: #086B9E;
+  border: 3px solid rgba(8, 107, 158, 0.4);
+  /*border: 3px solid #086B9E;*/
+  border-radius: 10px;
+  max-width: 900px;
+  margin: -50px auto;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 20px;
+
+  
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.search-bar select,
+.search-bar input {
+  border: 3px solid lightgrey;
+  border-radius: 10px;
+  height: 45px;
+  padding: 8px;
+}
+
+.search-bar button {
+  border: 3px solid #086B9E;
+  background-color: #086B9E;
+  color: white;
+  border-radius: 999px;
+  padding: 10px 25px;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background-color: #06416a;
+}
+
+/* ---------- Explore section (white) ---------- */
+.explore {
+  background-color: white;
+  color: #086B9E;
+  text-align: center;
+  padding: 100px 20px 40px;
+}
+
+.container{
+    color: white;
+    width: 60%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.box{
+    height: 200px;
+    width: 230px;
+    box-sizing: border-box;
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    text-align: center;
+    background-color: lightgray;
+    
+}
+
+.box:hover{
+    opacity: 0.7;
+    cursor: pointer;
+}
